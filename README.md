@@ -1,6 +1,6 @@
 # dn-template-react
 
-这是一个 React 项目模板，默认安装了 react/react-dom，同时单元测试等基础设施都已配置完成。
+这是一个 React & MobX 项目模板，默认安装了 react/react-dom/mobx/mobx-react，同时单元测试等基础设施都已配置完成。
 
 ## 使用
 
@@ -10,7 +10,7 @@
 ```sh
 mkdir demo
 cd demo
-dn init -t react
+dn init -t react-mobx
 ```
 
 通过如上命令便可以完成项目的初始化
