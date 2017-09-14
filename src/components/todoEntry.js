@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 
 const ENTER_KEY = 13;
 
+@observer
 class TodoEntry extends Component {
 
   handleKeyDown = (e) => {
