@@ -23,7 +23,9 @@ class TodoModel {
     this.completed = completed;
   }
 
-  
+  delete(id) {
+    this.store.todos = this.store.todos.filter(todo => todo.id !== id);
+  }
 
 }
 
