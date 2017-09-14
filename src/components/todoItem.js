@@ -5,14 +5,17 @@ import { observer } from 'mobx-react';
 class TodoItem extends Component {
 
   delete = (id) => {
-    const { todo } = this.props;
-    todo.delete(id);
+    this.props.todo.delete(id);
+  }
+
+  toggle = () => {
+    this.props.todo.toggle();
   }
 
   render() {
     const { todo } = this.props;
     return (
-      <li>
+      <li onClick={this.toggle} className={todo.completed ? 'completed' : ''}>
         <div className="todo-item">
           <span>{todo.title}</span>
           <button className="delete" onClick={this.delete.bind(null, todo.id)}>X</button>
