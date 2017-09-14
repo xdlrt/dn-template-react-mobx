@@ -4,11 +4,12 @@ import TodoItem from './todoItem';
 
 @observer
 class TodoList extends Component {
+
   render() {
     const { todoStore } = this.props;
     const { todos } = todoStore;
     return (
-      <div>
+      <div className="todo-list">
         <ul>
           {
             todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
@@ -17,6 +18,7 @@ class TodoList extends Component {
       </div>
     );
   }
+
 }
 
 export default TodoList;

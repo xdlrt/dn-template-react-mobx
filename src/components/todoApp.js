@@ -11,8 +11,8 @@ class TodoApp extends Component {
         <header className="todo-app-header">
           <h1>todos</h1>
           <TodoEntry todoStore={todoStore} />
-          <TodoList todoStore={todoStore} />
         </header>
+        <TodoList todoStore={todoStore} />
       </div>
     );
   }

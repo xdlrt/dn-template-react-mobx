@@ -18,7 +18,7 @@ class TodoItem extends Component {
       <li onClick={this.toggle} className={todo.completed ? 'completed' : ''}>
         <div className="todo-item">
           <span>{todo.title}</span>
-          <button className="delete" onClick={this.delete.bind(null, todo.id)}>X</button>
+          <button className="todo-item-delete" onClick={this.delete.bind(null, todo.id)}>X</button>
         </div>
       </li>
     );
