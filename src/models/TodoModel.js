@@ -23,6 +23,17 @@ class TodoModel {
     this.completed = completed;
   }
 
+  // 切换列表项的完成状态
+  toggle() {
+    this.completed = !this.completed;
+  }
+
+  /**
+   * 根据id删除列表项
+   * 
+   * @param {string} id 需要删除列表项的id
+   * @memberof TodoModel
+   */
   delete(id) {
     this.store.todos = this.store.todos.filter(todo => todo.id !== id);
   }

@@ -7,8 +7,8 @@ class TodoApp extends Component {
   render() {
     const { todoStore } = this.props;
     return (
-      <div>
-        <header className="header">
+      <div className="todo-app">
+        <header className="todo-app-header">
           <h1>todos</h1>
           <TodoEntry todoStore={todoStore} />
           <TodoList todoStore={todoStore} />

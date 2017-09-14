@@ -12,17 +12,6 @@ class TodoStore {
     this.todos.push(new TodoModel(this, uuid(), title, false));
   }
 
-  // 通过TodoModel的toJS方法更新todos
-  toJS() {
-    return this.todos.map(todo => todo.toJS());
-  }
-
-  // 通过data数组新建TodoStore的实例
-  static fromJS(data) {
-    const todoStore = new TodoStore();
-    todoStore.todos = data.map(item => TodoModel.fromJS(todoStore, item));
-    return todoStore;
-  }
 }
 
 export default TodoStore;

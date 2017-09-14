@@ -8,6 +8,7 @@ dev:
       ./build/(0).ico: ./src/assets/favicon.ico
   - name: webpack
     watch: true
+    sourceMap: false
   - name: server
     port: 8001
   - name: browser-sync
