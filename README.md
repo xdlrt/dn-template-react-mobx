@@ -1,7 +1,7 @@
 # dn-template-react-mobx
 
-这是一个应用了 Dawn 脚手架的 React & MobX 项目模板。
-关于模板，请看文档[介绍](https://alibaba.github.io/dawn/docs/#!/zh/guide/template);
+这是一个应用了 Dawn 脚手架的 React & MobX 项目模板。关于模板，请看文档[介绍](https://alibaba.github.io/dawn/docs/#!/zh/guide/template)。
+
 默认需要安装 react/react-dom/mobx/mobx-react，单元测试等基础设施都已配置完成。
 
 ## 使用

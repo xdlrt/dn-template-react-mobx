@@ -33,6 +33,10 @@ class TodoModel {
     this.store.todos = this.store.todos.filter(todo => todo.id !== id);
   }
 
+  setTitle(title) {
+    this.title = title;
+  }
+
 }
 
 export default TodoModel;

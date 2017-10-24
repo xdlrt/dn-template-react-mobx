@@ -19,6 +19,8 @@
   "dependencies": {
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
+    "todomvc-app-css": "^2.1.0",
+    "todomvc-common": "^1.0.4",
     "uuid": "^3.1.0"
   }
 }

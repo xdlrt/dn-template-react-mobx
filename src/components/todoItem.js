@@ -15,10 +15,18 @@ class TodoItem extends Component {
   render() {
     const { todo } = this.props;
     return (
-      <li onClick={this.toggle} className={todo.completed ? 'completed' : ''}>
-        <div className="todo-item">
-          <span>{todo.title}</span>
-          <button className="todo-item-delete" onClick={this.delete.bind(null, todo.id)}>X</button>
+      <li className={todo.completed ? 'completed' : ''}>
+        <div className="view">
+          <input
+            className="toggle"
+            type="checkbox"
+            checked={todo.completed}
+            onChange={this.toggle}
+          />
+          <label onDoubleClick={this.handleEdit}>
+            {todo.title}
+          </label>
+          <button className="destroy" onClick={this.delete.bind(null, todo.id)} />
         </div>
       </li>
     );

@@ -24,8 +24,8 @@ class TodoEntry extends Component {
     return (
       <input
         ref="inputFiled"
-        className="todo-input"
-        placeholder="enter your todo list"
+        className="new-todo"
+        placeholder="What needs to be done?"
         onKeyDown={this.handleKeyDown}
         autoFocus={true}
       />

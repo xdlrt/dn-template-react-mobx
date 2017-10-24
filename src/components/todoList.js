@@ -9,13 +9,22 @@ class TodoList extends Component {
     const { todoStore } = this.props;
     const { todos } = todoStore;
     return (
-      <div className="todo-list">
-        <ul>
-          {
-            todos.map(todo => <TodoItem key={todo.id} todo={todo} />)
-          }
+      <section className="main">
+        <input
+          className="toggle-all"
+          type="checkbox"
+          onChange={this.toggleAll}
+          checked={todoStore.activeTodoCount === 0}
+        />
+        <ul className="todo-list">
+          {todos.map(todo =>
+            (<TodoItem
+              key={todo.id}
+              todo={todo}
+            />)
+          )}
         </ul>
-      </div>
+      </section>
     );
   }
 
