@@ -6,7 +6,7 @@ import TodoItem from './todoItem';
 class TodoList extends Component {
 
   render() {
-    const { todoStore } = this.props;
+    const { todoStore, viewStore } = this.props;
     const { todos } = todoStore;
     return (
       <section className="main">
@@ -21,6 +21,7 @@ class TodoList extends Component {
             (<TodoItem
               key={todo.id}
               todo={todo}
+              viewStore={viewStore}
             />)
           )}
         </ul>
