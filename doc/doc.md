@@ -274,6 +274,15 @@ export default TodoItem;
 
 在视图中对 UI Store 的可观察的属性进行修改，MobX 会收集相应的变化经过处理后响应在视图上。
 
+## 源码
+
+完整的 todoMVC 代码可以通过以下方式获取：
+
+```bash
+$ dawn init -t react-mobx
+```
+或者在 Github 上查看源码：https://github.com/xdlrt/dn-template-react-mobx
+
 ## 总结
 
 基于 MobX 的数据流管理方案，分为以下几步：
