@@ -1,4 +1,4 @@
-export function uuid() {
+function uuid() {
   let uuid = '';
   for (let i = 0; i < 32; i++) {
     const random = Math.random() * 16 | 0;
@@ -10,3 +10,5 @@ export function uuid() {
   }
   return uuid;
 }
+
+export default uuid;

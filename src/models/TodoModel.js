@@ -8,7 +8,7 @@ class TodoModel {
 
   /**
    * 创建一个TodoModel实例
-   * 用于单个todo列表项的CURD操作
+   * 用于单个todo列表项的操作
    * @param {object} store 传入TodoStore，获取领域模型状态和方法
    * @param {string} id 用于前端操作的实例id
    * @param {string} title todo项的内容
@@ -32,6 +32,7 @@ class TodoModel {
     this.store.todos = this.store.todos.filter(todo => todo.id !== this.id);
   }
 
+  // 设置实例title
   setTitle = (title) => {
     this.title = title;
   }

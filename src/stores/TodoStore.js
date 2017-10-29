@@ -1,5 +1,5 @@
 import { observable } from 'mobx';
-import { uuid } from '../utils';
+import uuid from '../utils/uuid';
 import TodoModel from '../models/TodoModel';
 
 class TodoStore {
