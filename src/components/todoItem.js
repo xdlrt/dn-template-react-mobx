@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
-import { observable, expr } from 'mobx';
-import { observer } from 'mobx-react';
+import { observable, expr, computed } from 'mobx';
+import { inject, observer } from 'mobx-react';
 
+@inject('viewStore')
 @observer
 class TodoItem extends Component {
 
   @observable editText = '';
 
-  delete = (id) => {
-    this.props.todo.delete(id);
+  @computed get viewStore() {
+    return this.props.viewStore;
+  }
+
+  @computed get todo() {
+    return this.props.todo;
   }
 
   toggle = () => {
-    this.props.todo.toggle();
+    this.todo.toggle();
   }
 
   edit = () => {
-    const { todo, viewStore } = this.props;
-    viewStore.todoBeingEdited = todo;
-    this.editText = todo.title;
+    this.viewStore.todoBeingEdited = this.todo;
+    this.editText = this.todo.title;
   };
 
   handleChange = (e) => {
@@ -26,26 +30,24 @@ class TodoItem extends Component {
   }
 
   handleSubmit = () => {
-    const { todo, viewStore } = this.props;
     const val = this.editText.trim();
     if (val) {
-      todo.setTitle(val);
+      this.todo.setTitle(val);
       this.editText = val;
     } else {
-      this.delete(todo.id);
+      this.todo.delete();
     }
-    viewStore.todoBeingEdited = null;
+    this.viewStore.todoBeingEdited = null;
   }
 
   handleKeyDown = (e) => {
     // ESC键码 27
     // 回车键键码 13
-    const { todo, viewStore } = this.props;
     const policy = {
       '13': this.handleSubmit,
       '27': () => {
-        this.editText = todo.title;
-        viewStore.todoBeingEdited = null;
+        this.editText = this.todo.title;
+        this.viewStore.todoBeingEdited = null;
       }
     };
     if (policy[e.keyCode]) {
@@ -54,10 +56,9 @@ class TodoItem extends Component {
   }
 
   render() {
-    const { todo, viewStore } = this.props;
-    const isEdit = expr(() => viewStore.todoBeingEdited === todo);
+    const isEdit = expr(() => this.viewStore.todoBeingEdited === this.todo);
     const cls = [
-      todo.completed ? 'completed' : '',
+      this.todo.completed ? 'completed' : '',
       isEdit ? 'editing' : ''
     ].join(' ');
     return (
@@ -66,16 +67,15 @@ class TodoItem extends Component {
           <input
             className="toggle"
             type="checkbox"
-            checked={todo.completed}
+            checked={this.todo.completed}
             onChange={this.toggle}
           />
           <label onDoubleClick={this.edit}>
-            {todo.title}
+            {this.todo.title}
           </label>
-          <button className="destroy" onClick={this.delete.bind(null, todo.id)} />
+          <button className="destroy" onClick={this.todo.delete} />
         </div>
         <input
-          ref="editField"
           className="edit"
           value={this.editText}
           onBlur={this.handleSubmit}

@@ -22,7 +22,7 @@ build:
 
 test:
   - name: lint
-  - name: unit
+  # - name: unit
 
 publish:
   - name: shell

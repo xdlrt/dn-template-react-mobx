@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { observer } from 'mobx-react';
+import { computed } from 'mobx';
+import { inject, observer } from 'mobx-react';
 
 const ENTER_KEY = 13;
 
+@inject('todoStore')
 @observer
 class TodoEntry extends Component {
+
+  @computed get todoStore() {
+    return this.props.todoStore;
+  }
 
   handleKeyDown = (e) => {
     if (e.keyCode !== ENTER_KEY) {
       return;
     }
     e.preventDefault();
-    const { todoStore } = this.props;
-    const val = ReactDOM.findDOMNode(this.refs.inputFiled).value.trim();
+    const val = e.target.value;
     if (val) {
-      todoStore.addTodo(val);
-      ReactDOM.findDOMNode(this.refs.inputFiled).value = '';
+      this.todoStore.addTodo(val);
+      e.target.value = '';
     }
   };
 
   render() {
     return (
       <input
-        ref="inputFiled"
         className="new-todo"
         placeholder="What needs to be done?"
         onKeyDown={this.handleKeyDown}

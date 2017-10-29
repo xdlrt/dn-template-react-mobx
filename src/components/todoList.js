@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
-import { observer } from 'mobx-react';
+import { computed } from 'mobx';
+import { inject, observer } from 'mobx-react';
 import TodoItem from './todoItem';
 
+@inject('todoStore')
 @observer
 class TodoList extends Component {
 
+  @computed get todoStore() {
+    return this.props.todoStore;
+  }
+
   render() {
-    const { todoStore, viewStore } = this.props;
-    const { todos } = todoStore;
+    const { todos } = this.todoStore;
     return (
       <section className="main">
-        <input
-          className="toggle-all"
-          type="checkbox"
-          onChange={this.toggleAll}
-          checked={todoStore.activeTodoCount === 0}
-        />
         <ul className="todo-list">
-          {todos.map(todo =>
-            (<TodoItem
-              key={todo.id}
-              todo={todo}
-              viewStore={viewStore}
-            />)
-          )}
+          {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
         </ul>
       </section>
     );

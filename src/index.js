@@ -1,16 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'mobx-react';
+import store from './stores/index';
 import TodoApp from './components/todoApp';
-import TodoStore from './stores/TodoStore';
-import ViewStore from './stores/ViewStore';
 
 import 'todomvc-common/base.css';
 import 'todomvc-app-css/index.css';
 
-const todoStore = new TodoStore();
-const viewStore = new ViewStore();
-
 ReactDOM.render(
-  <TodoApp todoStore={todoStore} viewStore={viewStore} />,
+  <Provider {...store}>
+    <TodoApp />
+  </Provider>,
   document.getElementById('root')
 );
