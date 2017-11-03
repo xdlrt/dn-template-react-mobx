@@ -1,6 +1,6 @@
 {
   "name": "dn-template-react-mobx",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A template for dawn using react & MobX",
   "main": "./lib/index.js",
   "scripts": {
