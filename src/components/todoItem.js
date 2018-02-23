@@ -4,15 +4,17 @@ import { inject, observer } from 'mobx-react';
 
 @inject('viewStore')
 @observer
-class TodoItem extends Component {
+export default class TodoItem extends Component {
 
   @observable editText = '';
 
-  @computed get viewStore() {
+  @computed 
+  get viewStore() {
     return this.props.viewStore;
   }
 
-  @computed get todo() {
+  @computed 
+  get todo() {
     return this.props.todo;
   }
 
@@ -87,5 +89,3 @@ class TodoItem extends Component {
   }
 
 }
-
-export default TodoItem;

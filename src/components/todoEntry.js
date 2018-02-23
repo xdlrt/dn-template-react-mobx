@@ -6,9 +6,10 @@ const ENTER_KEY = 13;
 
 @inject('todoStore')
 @observer
-class TodoEntry extends Component {
+export default class TodoEntry extends Component {
 
-  @computed get todoStore() {
+  @computed 
+  get todoStore() {
     return this.props.todoStore;
   }
 
@@ -35,5 +36,3 @@ class TodoEntry extends Component {
     );
   }
 }
-
-export default TodoEntry;

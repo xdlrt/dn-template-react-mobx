@@ -5,9 +5,10 @@ import TodoItem from './todoItem';
 
 @inject('todoStore')
 @observer
-class TodoList extends Component {
+export default class TodoList extends Component {
 
-  @computed get todoStore() {
+  @computed 
+  get todoStore() {
     return this.props.todoStore;
   }
 
@@ -24,4 +25,3 @@ class TodoList extends Component {
 
 }
 
-export default TodoList;

@@ -2,7 +2,7 @@ import React from 'react';
 import TodoEntry from './todoEntry';
 import TodoList from './todoList';
 
-function TodoApp() {
+export default function TodoApp() {
   return (
     <section className="todoapp">
       <header className="header">
@@ -13,5 +13,3 @@ function TodoApp() {
     </section>
   );
 }
-
-export default TodoApp;
