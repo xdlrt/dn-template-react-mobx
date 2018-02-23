@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoEntry from './todoEntry';
 import TodoList from './todoList';
+import TodoFooter from './todoFooter';
 
 export default function TodoApp() {
   return (
@@ -11,6 +12,7 @@ export default function TodoApp() {
           <TodoEntry />
         </header>
         <TodoList />
+        <TodoFooter />
       </section>
       <footer className="info">
         <p>Double-click to edit a todo</p>

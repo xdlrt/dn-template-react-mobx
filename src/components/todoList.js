@@ -2,22 +2,40 @@ import React, { Component } from 'react';
 import { computed } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import TodoItem from './todoItem';
+import { ACTIVE_TODOS, COMPLETED_TODOS } from '../constants';
 
-@inject('todoStore')
+@inject('todoStore', 'viewStore')
 @observer
 export default class TodoList extends Component {
 
-  @computed 
+  @computed
   get todoStore() {
     return this.props.todoStore;
   }
 
+  @computed
+  get viewStore() {
+    return this.props.viewStore;
+  }
+
+  getVisibleTodos = () => {
+    return this.todoStore.todos.filter(todo => {
+      switch (this.viewStore.todoFilter) {
+        case ACTIVE_TODOS:
+          return !todo.completed;
+        case COMPLETED_TODOS:
+          return todo.completed;
+        default:
+          return true;
+      }
+    });
+  }
+
   render() {
-    const { todos } = this.todoStore;
     return (
       <section className="main">
         <ul className="todo-list">
-          {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+          {this.getVisibleTodos().map(todo => <TodoItem key={todo.id} todo={todo} />)}
         </ul>
       </section>
     );
